@@ -31,6 +31,7 @@ header {
     width: 167px;
     height: 28px;
     margin-top: 5px;
+    flex-shrink: 0;
   }
 
   /* menu for web */
@@ -69,7 +70,7 @@ header {
   .menu--toggler__label {
       display: none;
       position: absolute;
-      top: 5px;
+      top: 2px;
       right: 10px;
       bottom: 0;
       width: 44px;
@@ -221,6 +222,15 @@ header {
     padding: 10px;
   }
 
+  .img {
+    flex: 1 0 100% ;
+
+    img {
+      flex-shrink:0;
+    }
+
+  }
+
   /* media queries */
   @media screen and (min-width : 769px) and (max-width : 991px) {
     .row-img {
@@ -252,6 +262,18 @@ header {
       .img {
         padding-left: 8%;
       }
+    }
+  }
+
+  /* For IE10 & IE11 */
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+     .img {
+       flex: 1 0 100% ;
+
+       img {
+         flex-shrink:0;
+       }
     }
   }
 }
@@ -291,6 +313,18 @@ header {
     p {
       margin-left: 40px;
       font-weight: bold;
+    }
+  }
+
+  /* For IE10 & IE11 */
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+     .france, .usage {
+       flex: 1 0 100% ;
+
+       img {
+         flex-shrink:0;
+       }
     }
   }
 }
@@ -345,6 +379,18 @@ header {
   @media screen and (max-width : 397px) {
     .france:last-child:after {
       left: 40%;
+    }
+  }
+
+  /* For IE10 & IE11 */
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+     .france {
+       flex: 1 0 100% ;
+
+       img {
+         flex-shrink:0;
+       }
     }
   }
 }
