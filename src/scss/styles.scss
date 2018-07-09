@@ -1,0 +1,350 @@
+/* ----- VARIABLES ----- */
+
+$bg-color: #ff0000;
+$blue : #0070e0;
+$white : #ffffff;
+$black : #000000;
+$grey : #ced4da;
+
+$center : center;
+
+/* ----- GENERALITY ----- */
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+/* ----- MENU ----- */
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 20px;
+  border-bottom: 1px $grey solid;
+
+  img {
+    width: 167px;
+    height: 28px;
+    margin-top: 5px;
+  }
+
+  /* menu for web */
+  .nav--fullscreen {
+    .nav--horizontal {
+      list-style-type: none;
+      margin-top: 10px;
+      padding: 0;
+      font-size: 12px;
+      li {
+        display: inline;
+        position: relative;
+        font-weight: 500;
+
+        a {
+            color: $black;
+            font-size: 12px;
+            text-decoration: none;
+            padding-left: 10px;
+        }
+
+        a:hover {
+          color: $blue;
+        }
+      }
+    }
+  }
+
+
+  /* menu for mobile */
+
+  .menu--toggler {
+    display: none;
+  }
+
+  .menu--toggler__label {
+      display: none;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      bottom: 0;
+      width: 44px;
+      height: 100%;
+      margin-right: 10px;
+
+      :hover, :focus, :active {
+          cursor: pointer
+      }
+  }
+
+  .menu--toggler__label__text {
+      position: absolute;
+      text-indent: -9999px;
+  }
+
+  .menu--toggler__label__burger {
+    span {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 6px;
+        background-color: $blue;
+        transition: transform .5s, top .5s, bottom .5s, opacity .2s;
+        opacity: 1;
+    }
+
+    span:nth-child(1){
+        top: 5px;
+    }
+
+    span:nth-child(2) {
+        top: 15px;
+    }
+
+    span:nth-child(3) {
+        top: 25px;
+    }
+  }
+
+  /* animation of cross when you click to open the burger menu */
+  .menu--toggler:checked + .menu--toggler__label .menu--toggler__label__burger span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 19px;
+  }
+
+  .menu--toggler:checked + .menu--toggler__label .menu--toggler__label__burger span:nth-child(2) {
+      opacity: 0;
+  }
+
+  .menu--toggler:checked + .menu--toggler__label .menu--toggler__label__burger span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 19px;
+  }
+
+  .menu--mobile {
+      position: absolute;
+      list-style-type: none;
+      top: 55px;
+      left: 0;
+      right: 0;
+      margin: 0;
+      padding-left: 0;
+      display: none;
+      z-index: 1;
+
+      li {
+        border-bottom: 2px solid $blue;
+        margin: 0;
+        padding-left: 10px;
+      }
+
+      a, a:visited {
+          background-color: $white;
+          display: block;
+          line-height: 44px;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-weight: 600;
+      }
+
+      a:hover, a:focus, a:active {
+        color: $blue;
+      }
+  }
+
+  .menu--toggler:checked ~ .menu--mobile {
+      display: block;
+  }
+
+  /* media queries */
+  @media screen and (max-width : 768px) {
+    .nav--fullscreen {
+      display: none;
+    }
+
+    .menu--toggler__label {
+      display: block;
+    }
+
+    header {
+      justify-content: flex-start;
+    }
+
+    header h1 {
+      width: 100%;
+      margin-left: 20px;
+    }
+  }
+}
+
+
+/* ----- FIRST CONTAINER ----- */
+
+.container-first {
+  margin-top: 70px;
+  .row-p {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  .btn-birdoffice {
+    background-color: $blue;
+    color: $white;
+  }
+
+  .dsc-img {
+    font-weight: bold;
+  }
+
+  .card {
+    padding: 5px;
+    margin-bottom: 60px;
+  }
+
+  .input-group-text {
+    background-color: $white;
+  }
+
+  .input-group-text, .form-control {
+    border: 0px;
+  }
+
+  .input-group {
+    border-bottom: 1px $grey solid;
+    padding: 10px;
+  }
+
+  /* media queries */
+  @media screen and (min-width : 769px) and (max-width : 991px) {
+    .row-img {
+      .img {
+        padding-left: 5%;
+      }
+    }
+  }
+
+  @media screen and (min-width : 490px) and (max-width : 768px) {
+    .row-img {
+      .img {
+        padding-left: 9%;
+      }
+    }
+  }
+
+  @media screen and (max-width : 489px) {
+    .row-img {
+      .img {
+        padding-left: 7%;
+        max-width: 230px;
+      }
+    }
+  }
+
+  @media screen and (min-width : 992px) and (max-width : 1200px) {
+    .row-img {
+      .img {
+        padding-left: 8%;
+      }
+    }
+  }
+}
+
+/* ----- SECOND CONTAINER ----- */
+
+.container-second {
+  margin-top: 70px;
+
+  .row {
+    margin-bottom: 70px;
+  }
+
+  .card {
+    // width: 245px;
+    height: 80px;
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+
+  .usage {
+    .card-img-top {
+      width: 80px;
+    }
+  }
+
+  .france {
+    border-bottom: 1px $grey solid;
+    margin-top: 12px;
+
+    .france-img {
+      width: 25px;
+      height: 25px;
+      float: left;
+    }
+
+    p {
+      margin-left: 40px;
+      font-weight: bold;
+    }
+  }
+}
+
+/* ----- THIRD CONTAINER ----- */
+
+.container-third {
+  margin-bottom: 30px;
+
+  .france-redirect {
+    background-color: $blue;
+    color: $white;
+    font-weight: bold;
+    font-size: 16px;
+    width: 160px;
+    height: 220px;
+    padding: 10px;
+  }
+
+  .france {
+    p {
+      font-weight: bold;
+    }
+  }
+
+  .france:last-child:after {
+    content: url('/src/assets/arrow.png');
+    background-repeat: no-repeat;
+    position: relative;
+    bottom: 35px;
+    left: 85%;
+  }
+
+  /* media queries */
+  @media screen and (min-width : 992px) and (max-width : 1200px) {
+    .france:last-child:after {
+      left: 45%;
+    }
+  }
+
+  @media screen and (min-width : 768px) and (max-width : 992px) {
+    .france:last-child:after {
+      left: 62%;
+    }
+  }
+
+  @media screen and (min-width : 397px) and (max-width : 768px) {
+    .france:last-child:after {
+      left: 55%;
+    }
+  }
+  @media screen and (max-width : 397px) {
+    .france:last-child:after {
+      left: 40%;
+    }
+  }
+}
